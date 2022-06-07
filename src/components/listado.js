@@ -3,7 +3,8 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import "bootstrap/dist/css/bootstrap.css";
 import { Button, ModalBody, Modal, ModalHeader, ModalFooter } from "reactstrap";
-
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faRocket } from "@fortawesome/free-solid-svg-icons";
 
 function Listado() {
   //voy a usar mi propia API
@@ -81,19 +82,22 @@ function Listado() {
   let i = 0;
 
   return (
-    <div>
-      <div className="containerInput">
-        <input
-          className="form-control inputBuscar"
-          type="text"
-          value={busqueda}
-          placeholder="Busqueda: Escribe por nombre o fecha"
-          onChange={handleChange}
-        />
-      </div>
-
+    <div className="container">
+      <div className="row">  
+        <div className="col-sm-6">
+            <div className="containerInput">
+                <input
+                className="form-control inputBuscar"
+                type="text"
+                value={busqueda}
+                placeholder="Busqueda: Escribe por apellido o fecha"
+                onChange={handleChange}
+                />
+            </div>
+        </div>   
+      </div>  
       <div className="table-responsive">
-        <table className="table table-splited table-dark table-bordered table-hover">
+        <table className="table table-sm table-splited table-dark table-bordered table-hover">
           <thead>
             <tr>
               <th>Orden/Id</th>
@@ -118,14 +122,16 @@ function Listado() {
                     <td>
                       <button
                         className="btn btn-sm btn-secondary"
-                        onClick={() => {seleccionarFila(fila);      } }
+                        onClick={() => {
+                          seleccionarFila(fila);
+                        }}
                       >
                         Detalle
                       </button>
                     </td>
                   </tr>
-                );                             
-             })}
+                );
+              })}
           </tbody>
         </table>
         <Modal isOpen={abrirCerrarModal}>
@@ -167,6 +173,7 @@ function Listado() {
           </ModalFooter>
         </Modal>
       </div>
+      Powered by  <FontAwesomeIcon icon={faRocket}></FontAwesomeIcon> <strong> ReactJs </strong>
     </div>
   );
 }
