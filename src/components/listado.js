@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 import "bootstrap/dist/css/bootstrap.css";
 import { Button, ModalBody, Modal, ModalHeader, ModalFooter } from "reactstrap";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faRocket } from "@fortawesome/free-solid-svg-icons";
+import { faRocket,faSearch } from "@fortawesome/free-solid-svg-icons";
 
 function Listado() {
   //voy a usar mi propia API
@@ -84,8 +84,8 @@ function Listado() {
   return (
     <div className="container">
       <div className="row">  
-        <div className="col-sm-6">
-            <div className="containerInput">
+        <div className="col-sm-6 offset-6 mt-5">            
+            <div className="containerInput">            
                 <input
                 className="form-control inputBuscar"
                 type="text"
@@ -93,6 +93,9 @@ function Listado() {
                 placeholder="Busqueda: Escribe por apellido o fecha"
                 onChange={handleChange}
                 />
+                <button className="btn btn-success" disabled="disabled">
+                    <FontAwesomeIcon icon={faSearch}></FontAwesomeIcon>
+                </button>
             </div>
         </div>   
       </div>  
